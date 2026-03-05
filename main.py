@@ -5,10 +5,15 @@ from datetime import date, time
 
 app = FastAPI()
 
-# Lista en memoria para almacenar reservas
+@app.get("/")
+def inicio():
+    return {"mensaje": "Microservicio de reservas funcionando"}
+
+
+# Lista para almacenar reservas
 reservas_db = []
 
-# Modelo de datos usando Pydantic
+# Clase usando Pydantic
 class Reserva(BaseModel):
     id_reserva: int = Field(..., example=1)
     id_sala: int = Field(..., example=101)
@@ -22,6 +27,7 @@ class Reserva(BaseModel):
 # Endpoint POST para registrar una nueva reserva
 @app.post("/reservas", response_model=Reserva)
 def crear_reserva(reserva: Reserva):
+    
     # Validación adicional: hora_fin debe ser mayor que hora_inicio
     if reserva.hora_fin <= reserva.hora_inicio:
         raise HTTPException(
