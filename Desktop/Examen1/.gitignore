@@ -1,0 +1,30 @@
+# Ignorar el entorno virtual
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar archivos de configuración de IDEs (Visual Studio, VSCode, etc.)
+.vscode/
+.idea/
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos generados por Python
+*.sqlite3
+
+# Ignorar archivos de dependencias (si estás usando un gestor de dependencias específico)
+# .tox/
+# .coverage
+# *.egg-info
+# dist/
+# build/
+# *.egg
+
+# Archivos generados automáticamente por el sistema o el entorno virtual
+*.pyo
+*.pdb
