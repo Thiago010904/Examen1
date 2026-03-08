@@ -28,7 +28,7 @@ class Reserva(BaseModel):
 @app.post("/reservas", response_model=Reserva)
 def crear_reserva(reserva: Reserva):
     
-    # Validación adicional: hora_fin debe ser mayor que hora_inicio
+    # Validación extra o adicional: hora_fin requiere  ser mayor que hora_inicio
     if reserva.hora_fin <= reserva.hora_inicio:
         raise HTTPException(
             status_code=400,
